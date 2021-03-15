@@ -1,0 +1,25 @@
+version: '3'
+services:
+  service1:
+    image: ubuntu:latest
+    stdin_open: true # -i
+    tty: true        # -t
+    ports:
+      - "9999:8888"
+    volumes:
+      - new-volume
+      - /home/wtv/bind:/home/bind
+    networks:
+      - net
+  service2:
+    image: ubuntu:latest
+    stdin_open: true # -i
+    tty: true        # -t
+    volumes:
+      - new-volume
+    networks:
+      - net
+volumes:
+  new-volume:
+networks:
+  net:
